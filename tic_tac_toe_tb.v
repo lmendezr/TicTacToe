@@ -4,60 +4,99 @@ module tic_tac_toe_tb();
 	
 	wire p1_turn, p2_turn, p1_win, p2_win, grid_full;
 	wire a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led;
-	reg  a_button, b_button, c_button, d_button, e_button, f_button, g_button, h_button, i_button, reset;
+	reg  a, b, c, d, e, f, g, h, i, reset;
 
 	tic_tac_toe the_toe (p1_turn, p2_turn, p1_win, p2_win, grid_full,
 						a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led,
-	 					a_button, b_button, c_button, d_button, e_button, f_button, g_button, h_button, i_button, reset);
+	 					a, b, c, d, e, f, g, h, i, reset);
 
 	initial begin
 		reset <= 0;
-		a_button <= 0;
-		b_button <= 0;
-		c_button <= 0;
-		d_button <= 0;
-		e_button <= 0;
-		f_button <= 0;
-		g_button <= 0;
-		h_button <= 0;
-		i_button <= 0;
+		a <= 0;
+		b <= 0;
+		c <= 0;
+		d <= 0;
+		e <= 0;
+		f <= 0;
+		g <= 0;
+		h <= 0;
+		i <= 0;
 	end
 
 	initial begin
+		#10
+		$display("a = %b,b = %b,c = %b,d = %b,e = %b,f = %b,g = %b,h = %b,i = %b",a,b,c,d,e,f,g,h,i);
+		
 		#10 reset = 1;
 		#10 reset = 0;
 
-		#10 a_button = 1;
-		#10 a_button = 0;
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
-		#10 d_button = 1;
-		#10 d_button = 0;
+		#10 h = 1;
+		#10 h = 0;
 
-		#10 b_button = 1;
-		#10 b_button = 0;
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
-		#10 f_button = 1;
-		#10 f_button = 0;
+		#10 a = 1;
+		#10 a = 0;
 
-		#10 c_button = 1;
-		#10 c_button = 0;
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
-		#10 e_button = 1;
-		#10 e_button = 0;
+		#10 d = 1;
+		#10 d = 0;
 
-		#10 g_button = 1;
-		#10 g_button = 0;
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
-		#10 h_button = 1;
-		#10 h_button = 0;
+		#10 b = 1;
+		#10 b = 0;
 
-		#10 i_button = 1;
-		#10 i_button = 0;
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
+		#10 f = 1;
+		#10 f = 0;
+
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
+		#10 c = 1;
+		#10 c = 0;
+
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
+		#10 e = 1;
+		#10 e = 0;
+
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
+		#10 g = 1;
+		#10 g = 0;
+
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
+
+		#10 i = 1;
+		#10 i = 0;
+
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
+		// $display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		// $display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 	end
 
-	initial begin
-		$monitor("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
-		$monitor(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
-	end
+	// initial begin
+	// 	$monitor("Done FFs: P1= %b, P2= %b | Time: %1d", the_toe.done.d1.Q, the_toe.done.d2.Q, $time);
+	// end
+
+		// $display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		// $display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
 endmodule

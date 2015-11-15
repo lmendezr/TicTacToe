@@ -15,4 +15,9 @@ module win_detect
 
 	or(win_status, first_row, second_row, third_row, first_column, second_column, third_column, first_diagonal, second_diagonal);
 
+	// always @(*) begin
+	// 	$display("win_status = %b, A = %b, B = %b, C = %b, D = %b, E = %b, F = %b, G = %b, H = %b, I = %b, time: %1d", 
+	// 		win_status, A, B, C, D, E, F, G, H, I, $time);
+	// end
+
 endmodule

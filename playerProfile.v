@@ -14,8 +14,13 @@ module playerProfile
 
 	xor(out7, out5, out6);
 
-	xor(player_two, switchI, out7);
+	xor(p2_out, switchI, out7);
 
-	not(player_one, player_two);
+	not(p1_out, p2_out);
+
+	// always @(*) begin
+	// 	$display("p1_out = %b, p2_out = %b, switchA = %b, switchB = %b, switchC = %b, switchD = %b, switchE = %b, switchF = %b, switchG = %b, switchH = %b, switchI = %b, time: %1d",
+	// 			p1_out, p2_out, switchA, switchB, switchC, switchD, switchE, switchF, switchG, switchH, switchI, $time);
+	// end
 
 endmodule
