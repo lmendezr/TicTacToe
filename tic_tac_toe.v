@@ -10,6 +10,9 @@ module tic_tac_toe
 	 output a_switch_p2, b_switch_p2, c_switch_p2, d_switch_p2, e_switch_p2, f_switch_p2, g_switch_p2, h_switch_p2, i_switch_p2,
 	 input  a_button, b_button, c_button, d_button, e_button, f_button, g_button, h_button, i_button, reset);
 
+	wire a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out;
+	wire a_switch_p1, b_switch_p1, c_switch_p1, d_switch_p1, e_switch_p1, f_switch_p1, g_switch_p1, h_switch_p1, i_switch_p1;
+
 	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_button, p1_profile_out, p2_profile_out, reset);
 	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_button, p1_profile_out, p2_profile_out, reset);
 	switch c_switch (c_switch_out, c_switch_p1, c_switch_p2, c_button, p1_profile_out, p2_profile_out, reset);
