@@ -6,7 +6,7 @@
 `include "win_detect.v"
 
 module tic_tac_toe
-	(output p1_turn, p2_turn, p1_win, p2_win, grid_full,
+	(output p1_profile_out, p2_profile_out, p1_win, p2_win, grid_full,
 	 output a_switch_p2, b_switch_p2, c_switch_p2, d_switch_p2, e_switch_p2, f_switch_p2, g_switch_p2, h_switch_p2, i_switch_p2,
 	 input  a_button, b_button, c_button, d_button, e_button, f_button, g_button, h_button, i_button, reset);
 
@@ -20,7 +20,7 @@ module tic_tac_toe
 	switch h_switch (h_switch_out, h_switch_p1, h_switch_p2, h_button, p1_profile_out, p2_profile_out, reset);
 	switch i_switch (i_switch_out, i_switch_p1, i_switch_p2, i_button, p1_profile_out, p2_profile_out, reset);
 
-	all_switch all_switch (all_pressed, a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out);
+	all_switch all_switch (grid_full, a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out);
 	
 	playerProfile playerProfile (p1_profile_out, p2_profile_out, a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out);
 

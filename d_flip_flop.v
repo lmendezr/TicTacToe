@@ -3,8 +3,10 @@ module d_flip_flop
 	 input		D,
 	 input		reset, set, clock);
 
+	supply0 ground;
+
 	always @ (posedge clock, reset) begin
-		if (reset) Q <= 1'b0;
+		if (reset) Q <= ground;
 		else if (set) Q <= D;
 		else Q <= Q;
 	end
