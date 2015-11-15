@@ -4,14 +4,12 @@ module d_flip_flop
 	 input		reset, set, clock);
 
 	supply0 ground;
+	supply1 vcc;
 
-	always @ (posedge clock, reset) begin
-		if (clock) begin
-			Q <= D;
-		end else begin		
-			Q <= ground;
-		end
+	always @ (posedge clock, posedge reset, posedge set) begin
+		if (reset) Q <= ground;
+		else if (set) Q <= vcc;
+		else Q <= D;
 	end
-		
-	
+
 endmodule
