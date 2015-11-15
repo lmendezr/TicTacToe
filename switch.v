@@ -15,8 +15,8 @@ module switch
 	xor(switch_out, p1_out, p2_out);
 
 	// always @(*) begin
-	// 	$display("switch_out = %b, p1_out = %b, p2_out = %b, button = %b, p1_profile = %b, p2_profile = %b, reset = %b, time: %1d", 
-	// 				switch_out, p1_out, p2_out, button, p1_profile, p2_profile, reset, $time);
+	// 	$display(" button = %b, p1_profile = %b, p2_profile = %b, reset = %b, time: %1d", 
+	// 				 button, p1_profile, p2_profile, reset, $time);
 	// end
 	
 endmodule

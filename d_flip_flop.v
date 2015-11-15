@@ -6,11 +6,12 @@ module d_flip_flop
 	supply0 ground;
 
 	always @ (posedge clock, reset) begin
-		if (reset) Q = ground;
-		else if (!set) begin 
-			Q = D;
-			// $display("Q = %b, D = %b, reset = %b, set = %b, clock = %b, time = %1d", Q, D, reset, set, clock, $time);
+		if (clock) begin
+			Q <= D;
+		end else begin		
+			Q <= ground;
 		end
-		else Q = Q;
 	end
+		
+	
 endmodule

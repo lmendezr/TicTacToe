@@ -32,4 +32,11 @@ module tic_tac_toe
 
 	done done (p1_win, p2_win, p1_win_status, p2_win_status, reset);
 
+	// always @(*) begin
+	// 	$display("buttonA = %b, buttonB = %b, buttonC = %b, buttonD = %b, buttonE = %b, buttonF = %b, buttonG = %b, buttonH = %b, switchI = %b, time: %1d", 
+	// 		a_button, b_button, c_button, d_button, e_button, f_button, g_button, h_button, i_button, $time);
+	// 	 	$display("a_switch_out = %b, b_switch_out = %b, c_switch_out = %b, d_switch_out = %b, e_switch_out = %b, f_switch_out = %b, g_switch_out = %b, h_switch_out = %b,i _switch_out = %b, time: %1d", 
+	//  		a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out, $time);
+	// end
+
 endmodule
