@@ -13,15 +13,15 @@ module tic_tac_toe
 	wire a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out;
 	wire a_switch_p1, b_switch_p1, c_switch_p1, d_switch_p1, e_switch_p1, f_switch_p1, g_switch_p1, h_switch_p1, i_switch_p1;
 
-	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_button, p1_profile_out, p2_profile_out, reset);
-	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_button, p1_profile_out, p2_profile_out, reset);
-	switch c_switch (c_switch_out, c_switch_p1, c_switch_p2, c_button, p1_profile_out, p2_profile_out, reset);
-	switch d_switch (d_switch_out, d_switch_p1, d_switch_p2, d_button, p1_profile_out, p2_profile_out, reset);
-	switch e_switch (e_switch_out, e_switch_p1, e_switch_p2, e_button, p1_profile_out, p2_profile_out, reset);
-	switch f_switch (f_switch_out, f_switch_p1, f_switch_p2, f_button, p1_profile_out, p2_profile_out, reset);
-	switch g_switch (g_switch_out, g_switch_p1, g_switch_p2, g_button, p1_profile_out, p2_profile_out, reset);
-	switch h_switch (h_switch_out, h_switch_p1, h_switch_p2, h_button, p1_profile_out, p2_profile_out, reset);
-	switch i_switch (i_switch_out, i_switch_p1, i_switch_p2, i_button, p1_profile_out, p2_profile_out, reset);
+	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch c_switch (c_switch_out, c_switch_p1, c_switch_p2, c_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch d_switch (d_switch_out, d_switch_p1, d_switch_p2, d_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch e_switch (e_switch_out, e_switch_p1, e_switch_p2, e_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch f_switch (f_switch_out, f_switch_p1, f_switch_p2, f_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch g_switch (g_switch_out, g_switch_p1, g_switch_p2, g_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch h_switch (h_switch_out, h_switch_p1, h_switch_p2, h_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
+	switch i_switch (i_switch_out, i_switch_p1, i_switch_p2, i_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
 
 	all_switch all_switch (grid_full, a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out);
 	

@@ -50,6 +50,12 @@ module tic_tac_toe_tb();
 		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
 		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
+		#10 c = 1;
+		#10 c = 0;
+
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
 		#10 d = 1;
 		#10 d = 0;
 
@@ -62,8 +68,16 @@ module tic_tac_toe_tb();
 		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
 		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
-		#10 i = 1;
-		#10 i = 0;
+		#10 f = 1;
+		#10 f = 0;
+
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
+
+		#10 g = 1;
+		#10 g = 0;
+
 
 		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
 		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
@@ -74,9 +88,12 @@ module tic_tac_toe_tb();
 		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
 		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
+		#10 i = 1;
+		#10 i = 0;
 
-		#10 f = 1;
-		#10 f = 0;
+		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+
 
 		// $display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
 		// $display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
