@@ -3,7 +3,7 @@
 module tic_tac_toe_tb();
 	
 	wire p1_turn, p2_turn, p1_win, p2_win, grid_full;
-	wire a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led;
+	wire [2:0] a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led;
 	reg  a, b, c, d, e, f, g, h, i, reset;
 
 	tic_tac_toe the_toe (p1_turn, p2_turn, p1_win, p2_win, grid_full,

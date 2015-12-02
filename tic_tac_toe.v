@@ -7,11 +7,21 @@
 
 module tic_tac_toe
 	(output p1_profile_out, p2_profile_out, p1_win, p2_win, grid_full,
-	 output a_switch_p2, b_switch_p2, c_switch_p2, d_switch_p2, e_switch_p2, f_switch_p2, g_switch_p2, h_switch_p2, i_switch_p2,
+	 output [2:0] a_out, b_out, c_out, d_out, e_out, f_out, g_out, h_out, i_out,
 	 input  a_button, b_button, c_button, d_button, e_button, f_button, g_button, h_button, i_button, reset);
 
 	wire a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out;
 	wire a_switch_p1, b_switch_p1, c_switch_p1, d_switch_p1, e_switch_p1, f_switch_p1, g_switch_p1, h_switch_p1, i_switch_p1;
+
+	assign a_out = $signed(a_switch_p2);
+	assign b_out = $signed(b_switch_p2);
+	assign c_out = $signed(c_switch_p2);
+	assign d_out = $signed(d_switch_p2);
+	assign e_out = $signed(e_switch_p2);
+	assign f_out = $signed(f_switch_p2);
+	assign g_out = $signed(g_switch_p2);
+	assign h_out = $signed(h_switch_p2);
+	assign i_out = $signed(i_switch_p2);
 
 	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
 	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_button, p1_profile_out, p2_profile_out, p1_win, p2_win, reset);
