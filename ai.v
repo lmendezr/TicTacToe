@@ -1,24 +1,26 @@
 module ai
-	(output reg a_button, b_button, c_button, 
-					d_button, e_button, f_button, 
-					g_button, h_button, i_button,
+	(output reg [8:0] ai_out,
 	input	a, b, c, d, e, f, g, h, i, ai_turn, reset, vcc);
 	
 	initial begin
-		a_button = 0;
-		b_button = 0;
-		c_button = 0;
-		d_button = 0;
-		e_button = 0;
-		f_button = 0;
-		g_button = 0;
-		h_button = 0;
-		i_button = 0;
+		ai_out = 0;
 	end
 
+	integer x;
+
 	always @(negedge reset, posedge ai_turn) begin
-		if (ai_turn) e_button = vcc;
-		else e_button = !vcc;
+		if (ai_turn) begin
+			if (!a) ai_out = 9'b000_000_000;
+			if (!b) ai_out = 9'b010_000_000;
+			if (!c) ai_out = 9'b001_000_000;
+			if (!d) ai_out = 9'b000_100_000;
+			if (!e) ai_out = 9'b000_010_000;
+			if (!f) ai_out = 9'b000_001_000;
+			if (!g) ai_out = 9'b000_000_100;
+			if (!h) ai_out = 9'b000_000_010;
+			if (!i) ai_out = 9'b000_000_001;
+		end
+		else ai_out = 0;
 	end
 
 endmodule

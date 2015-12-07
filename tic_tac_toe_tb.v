@@ -2,12 +2,12 @@
 
 module tic_tac_toe_tb();
 	
-	wire p1_turn, p2_turn, p1_win, p2_win, grid_full;
+	wire p1_turn, p2_turn, p1_win, p2_win, grid_full, game_mode_led;
 	wire [1:0] a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led;
 	reg  a, b, c, d, e, f, g, h, i, reset;
 	reg	 game_mode = 1;
 
-	tic_tac_toe the_toe (p1_turn, p2_turn, p1_win, p2_win, grid_full,
+	tic_tac_toe the_toe (p1_turn, p2_turn, p1_win, p2_win, grid_full, game_mode_led,
 						a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led,
 	 					a, b, c, d, e, f, g, h, i, reset, game_mode);
 
@@ -36,7 +36,7 @@ module tic_tac_toe_tb();
 		#5
 		$display("e_mux_in: %b | e_mux_out: %b", the_toe.e_mux.in, the_toe.e_mux_out);
 
-		
+
 		#20
 		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
 		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);

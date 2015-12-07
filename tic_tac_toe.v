@@ -27,9 +27,7 @@ module tic_tac_toe
 		 d_mux_out, e_mux_out, f_mux_out,
 		 g_mux_out, h_mux_out, i_mux_out;
 
-	wire a_ai_out, b_ai_out, c_ai_out,
-		 d_ai_out, e_ai_out, f_ai_out,
-		 g_ai_out, h_ai_out, i_ai_out;
+	wire [8:0] ai_out;
 
 	wire a_switch_p1, b_switch_p1, c_switch_p1, 
 		 d_switch_p1, e_switch_p1, f_switch_p1, 
@@ -62,15 +60,15 @@ module tic_tac_toe
 	not  (p2_win_led, p2_win);
 	nand (tie_led, grid_full, !p1_win, !p2_win);
 
-	mux2to1 a_mux (a_mux_out, {a_ai_out, a_button}, ai_turn);
-	mux2to1 b_mux (b_mux_out, {b_ai_out, b_button}, ai_turn);
-	mux2to1 c_mux (c_mux_out, {c_ai_out, c_button}, ai_turn);
-	mux2to1 d_mux (d_mux_out, {d_ai_out, d_button}, ai_turn);
-	mux2to1 e_mux (e_mux_out, {e_ai_out, e_button}, ai_turn);
-	mux2to1 f_mux (f_mux_out, {f_ai_out, f_button}, ai_turn);
-	mux2to1 g_mux (g_mux_out, {g_ai_out, g_button}, ai_turn);
-	mux2to1 h_mux (h_mux_out, {h_ai_out, h_button}, ai_turn);
-	mux2to1 i_mux (i_mux_out, {i_ai_out, i_button}, ai_turn);
+	mux2to1 a_mux (a_mux_out, {ai_out[8], a_button}, ai_turn);
+	mux2to1 b_mux (b_mux_out, {ai_out[7], b_button}, ai_turn);
+	mux2to1 c_mux (c_mux_out, {ai_out[6], c_button}, ai_turn);
+	mux2to1 d_mux (d_mux_out, {ai_out[5], d_button}, ai_turn);
+	mux2to1 e_mux (e_mux_out, {ai_out[4], e_button}, ai_turn);
+	mux2to1 f_mux (f_mux_out, {ai_out[3], f_button}, ai_turn);
+	mux2to1 g_mux (g_mux_out, {ai_out[2], g_button}, ai_turn);
+	mux2to1 h_mux (h_mux_out, {ai_out[1], h_button}, ai_turn);
+	mux2to1 i_mux (i_mux_out, {ai_out[0], i_button}, ai_turn);
 
 	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_mux_out, p1_profile, p2_profile, p1_win, p2_win, reset);
 	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_mux_out, p1_profile, p2_profile, p1_win, p2_win, reset);
@@ -105,9 +103,7 @@ module tic_tac_toe
 	
 	supply1 vcc;
 
-	ai david (a_ai_out, b_ai_out, c_ai_out,
-			  d_ai_out, e_ai_out, f_ai_out,
-			  g_ai_out, h_ai_out, i_ai_out,
+	ai david (ai_out, 
 			  a_stat, b_stat, c_stat,
 			  d_stat, e_stat, f_stat,
 			  g_stat, h_stat, i_stat,
