@@ -4,11 +4,12 @@ module tic_tac_toe_tb();
 	
 	wire p1_turn, p2_turn, p1_win, p2_win, grid_full;
 	wire [1:0] a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led;
-	reg  a, b, c, d, e, f, g, h, i, reset, comp_button;
+	reg  a, b, c, d, e, f, g, h, i, reset;
+	reg	 game_mode = 1;
 
 	tic_tac_toe the_toe (p1_turn, p2_turn, p1_win, p2_win, grid_full,
 						a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led,
-	 					a, b, c, d, e, f, g, h, i, reset, comp_button);
+	 					a, b, c, d, e, f, g, h, i, reset, game_mode);
 
 	initial begin
 	$display("IM HERE");
@@ -26,30 +27,32 @@ module tic_tac_toe_tb();
 	end
 
 	initial begin
-		
 		// $display("a = %b,b = %b,c = %b,d = %b,e = %b,f = %b,g = %b,h = %b,i = %b",a,b,c,d,e,f,g,h,i);
 
 		#1 reset = 1;
-		#2 reset = 0;
+		#1 reset = 0;
 
-		//#10 reset = 0;
+		$display("e_mux_in: %b | e_mux_out: %b", the_toe.e_mux.in, the_toe.e_mux_out);
+		#5
+		$display("e_mux_in: %b | e_mux_out: %b", the_toe.e_mux.in, the_toe.e_mux_out);
 
 		
+		#20
 		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
 		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
 		
-		 #14 a = 1;
-		 #15 a = 0;
-		//#4 comp_button = 0;
-		//#6 comp_button = 0;
-		
+		// #10 a = 1;
+		// #10 a = 0;
+
+		// $display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		// $display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 		
 		// #10 b = 1;
 		// #10 b = 0;
 
-		$display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
-		$display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
+		// $display("p1_turn: %b, p2_turn: %b, p1_win: %b, p2_win: %b, grid_full: %b", p1_turn, p2_turn, p1_win, p2_win, grid_full);
+		// $display(" %b %b %b\n %b %b %b\n %b %b %b", a_led, b_led, c_led, d_led, e_led, f_led, g_led, h_led, i_led);
 
 		// #10 c = 1;
 		// #10 c = 0;

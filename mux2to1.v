@@ -14,9 +14,9 @@ endmodule
 
 // 	initial begin
 // 		sel = 0;
-// 		#10 $display("%b", out);
+// 		$display("%b", out);
 // 		sel = 1;
-// 		#10 $display("%b", out);
+// 		$display("%b", out);
 // 	end
 
 // endmodule

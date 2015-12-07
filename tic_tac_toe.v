@@ -58,15 +58,15 @@ module tic_tac_toe
 	not  (p2_win_led, p2_win);
 	nand (tie_led, grid_full, !p1_win, !p2_win);
 
-	mux2to1 a_mux (a_mux_out, {a_button, a_ai_out}, game_mode);
-	mux2to1 b_mux (b_mux_out, {b_button, b_ai_out}, game_mode);
-	mux2to1 c_mux (c_mux_out, {c_button, c_ai_out}, game_mode);
-	mux2to1 d_mux (d_mux_out, {d_button, d_ai_out}, game_mode);
-	mux2to1 e_mux (e_mux_out, {e_button, e_ai_out}, game_mode);
-	mux2to1 f_mux (f_mux_out, {f_button, f_ai_out}, game_mode);
-	mux2to1 g_mux (g_mux_out, {g_button, g_ai_out}, game_mode);
-	mux2to1 h_mux (h_mux_out, {h_button, h_ai_out}, game_mode);
-	mux2to1 i_mux (i_mux_out, {i_button, i_ai_out}, game_mode);
+	mux2to1 a_mux (a_mux_out, {a_ai_out, a_button}, game_mode);
+	mux2to1 b_mux (b_mux_out, {b_ai_out, b_button}, game_mode);
+	mux2to1 c_mux (c_mux_out, {c_ai_out, c_button}, game_mode);
+	mux2to1 d_mux (d_mux_out, {d_ai_out, d_button}, game_mode);
+	mux2to1 e_mux (e_mux_out, {e_ai_out, e_button}, game_mode);
+	mux2to1 f_mux (f_mux_out, {f_ai_out, f_button}, game_mode);
+	mux2to1 g_mux (g_mux_out, {g_ai_out, g_button}, game_mode);
+	mux2to1 h_mux (h_mux_out, {h_ai_out, h_button}, game_mode);
+	mux2to1 i_mux (i_mux_out, {i_ai_out, i_button}, game_mode);
 
 	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_mux_out, p1_profile, p2_profile, p1_win, p2_win, reset);
 	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_mux_out, p1_profile, p2_profile, p1_win, p2_win, reset);
@@ -100,7 +100,7 @@ module tic_tac_toe
 	ai david (a_ai_out, b_ai_out, c_ai_out,
 			  d_ai_out, e_ai_out, f_ai_out,
 			  g_ai_out, h_ai_out, i_ai_out, 
-			  game_mode, p1_profile,
+			  game_mode, p1_profile, reset,
 			  a_stat, b_stat, c_stat,
 			  d_stat, e_stat, f_stat,
 			  g_stat, h_stat, i_stat);

@@ -2,12 +2,25 @@ module ai
 	(output reg a_button, b_button, c_button, 
 	 			d_button, e_button, f_button, 
 	 			g_button, h_button, i_button,
-	input	game_mode, p1_turn,
+	input	game_mode, p1_turn, reset,
 			a, b, c, d, e, f, g, h, i);
 
-	always @(*) begin
+	initial begin
+		a_button = 0;
+		b_button = 0;
+		c_button = 0;
+		d_button = 0;
+		e_button = 0;
+		f_button = 0;
+		g_button = 0;
+		h_button = 0;
+		i_button = 0;
+	end
+
+	always @(posedge reset or posedge p1_turn) begin
 		if(game_mode & p1_turn) begin
-			e_button = 1;
+			#1 e_button = 1;
+			#1 e_button = 0;
 		end
 	end
 
