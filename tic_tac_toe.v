@@ -8,7 +8,7 @@
 `include "ai.v"
 
 module tic_tac_toe
-	(output p1_turn_led, p2_turn_led, p1_win_led, p2_win_led, tie_led,
+	(output p1_turn_led, p2_turn_led, p1_win_led, p2_win_led, tie_led, game_mode_led,
 	 output [1:0] a_out, b_out, c_out, d_out, e_out, f_out, g_out, h_out, i_out,
 	 input  a_button, b_button, c_button, 
 	 		d_button, e_button, f_button, 
@@ -41,6 +41,10 @@ module tic_tac_toe
 
 
 	wire p1_profile, p2_profile, p1_win, p2_win, grid_full;
+	
+	wire ai_turn;
+	
+	assign game_mode_led = game_mode;
 
 	assign a_out = {!a_switch_p1, !a_switch_p2};
 	assign b_out = {!b_switch_p1, !b_switch_p2};
@@ -58,15 +62,15 @@ module tic_tac_toe
 	not  (p2_win_led, p2_win);
 	nand (tie_led, grid_full, !p1_win, !p2_win);
 
-	mux2to1 a_mux (a_mux_out, {a_ai_out, a_button}, game_mode);
-	mux2to1 b_mux (b_mux_out, {b_ai_out, b_button}, game_mode);
-	mux2to1 c_mux (c_mux_out, {c_ai_out, c_button}, game_mode);
-	mux2to1 d_mux (d_mux_out, {d_ai_out, d_button}, game_mode);
-	mux2to1 e_mux (e_mux_out, {e_ai_out, e_button}, game_mode);
-	mux2to1 f_mux (f_mux_out, {f_ai_out, f_button}, game_mode);
-	mux2to1 g_mux (g_mux_out, {g_ai_out, g_button}, game_mode);
-	mux2to1 h_mux (h_mux_out, {h_ai_out, h_button}, game_mode);
-	mux2to1 i_mux (i_mux_out, {i_ai_out, i_button}, game_mode);
+	mux2to1 a_mux (a_mux_out, {a_ai_out, a_button}, ai_turn);
+	mux2to1 b_mux (b_mux_out, {b_ai_out, b_button}, ai_turn);
+	mux2to1 c_mux (c_mux_out, {c_ai_out, c_button}, ai_turn);
+	mux2to1 d_mux (d_mux_out, {d_ai_out, d_button}, ai_turn);
+	mux2to1 e_mux (e_mux_out, {e_ai_out, e_button}, ai_turn);
+	mux2to1 f_mux (f_mux_out, {f_ai_out, f_button}, ai_turn);
+	mux2to1 g_mux (g_mux_out, {g_ai_out, g_button}, ai_turn);
+	mux2to1 h_mux (h_mux_out, {h_ai_out, h_button}, ai_turn);
+	mux2to1 i_mux (i_mux_out, {i_ai_out, i_button}, ai_turn);
 
 	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_mux_out, p1_profile, p2_profile, p1_win, p2_win, reset);
 	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_mux_out, p1_profile, p2_profile, p1_win, p2_win, reset);
@@ -96,14 +100,18 @@ module tic_tac_toe
 	or(g_stat, g_switch_p1, g_switch_p2);
 	or(h_stat, h_switch_p1, h_switch_p2);
 	or(i_stat, i_switch_p1, i_switch_p2);
+	
+	and(ai_turn, game_mode, p1_profile);
+	
+	supply1 vcc;
 
 	ai david (a_ai_out, b_ai_out, c_ai_out,
 			  d_ai_out, e_ai_out, f_ai_out,
-			  g_ai_out, h_ai_out, i_ai_out, 
-			  game_mode, p1_profile, reset,
+			  g_ai_out, h_ai_out, i_ai_out,
 			  a_stat, b_stat, c_stat,
 			  d_stat, e_stat, f_stat,
-			  g_stat, h_stat, i_stat);
+			  g_stat, h_stat, i_stat,
+			  ai_turn, reset, vcc);
 
 	// always @(*) begin
 	// 	$display("buttonA = %b, buttonB = %b, buttonC = %b, buttonD = %b, buttonE = %b, buttonF = %b, buttonG = %b, buttonH = %b, switchI = %b, time: %1d", 
