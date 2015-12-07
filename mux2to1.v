@@ -1,10 +1,22 @@
-module mux2to1 (In1,In2,Sel,Out);
-	input In1, In2;           
-	input Sel; 				 
-	output reg  Out; 			 
-	always @(Sel,In2,In1)
-		case (Sel) 					
-			0: Out =  In1;			
-			1: Out =  In2;			
-		endcase
+module mux2to1
+	(output out,
+	 input [1:0] in,
+	 input sel);
+	assign out = in[sel];
 endmodule
+
+// module mux2to1_tb();
+// 	reg [1:0] in = 2'b10;
+// 	reg sel;
+// 	wire out;
+
+// 	mux2to1 mux(out, in, sel);
+
+// 	initial begin
+// 		sel = 0;
+// 		#10 $display("%b", out);
+// 		sel = 1;
+// 		#10 $display("%b", out);
+// 	end
+
+// endmodule
