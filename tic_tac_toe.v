@@ -6,7 +6,7 @@
 `include "win_detect.v"
 
 module tic_tac_toe
-	(output p1_turn_led, p2_turn_led, p1_win_led, p2_win_led, grid_full_led,
+	(output p1_turn_led, p2_turn_led, p1_win_led, p2_win_led, tie_led,
 	 output [1:0] a_out, b_out, c_out, d_out, e_out, f_out, g_out, h_out, i_out,
 	 input  a_button, b_button, c_button, d_button, e_button, f_button, g_button, h_button, i_button, reset);
 
@@ -29,7 +29,7 @@ module tic_tac_toe
 	nand (p2_turn_led, p2_profile, !grid_full, !p1_win, !p2_win);
 	not  (p1_win_led, p1_win);
 	not  (p2_win_led, p2_win);
-	not  (grid_full_led, grid_full);
+	nand (tie_led, grid_full, !p1_win, !p2_win);
 
 	switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, a_button, p1_profile, p2_profile, p1_win, p2_win, reset);
 	switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_button, p1_profile, p2_profile, p1_win, p2_win, reset);
