@@ -28,11 +28,13 @@ module tic_tac_toe
 	assign h_out = {!h_switch_p1, !h_switch_p2};
 	assign i_out = {!i_switch_p1, !i_switch_p2};
 	wire a_button_pressed;
-	assign p1_turn_led 	 = !p1_profile;
-	assign p2_turn_led 	 = !p2_profile;
-	assign p1_win_led 	 = !p1_win;
-	assign p2_win_led 	 = !p2_win;
-	assign grid_full_led = !grid_full;
+
+	nand (p1_turn_led, p1_profile, !grid_full, !p1_win, !p2_win);
+	nand (p2_turn_led, p2_profile, !grid_full, !p1_win, !p2_win);
+	not  (p1_win_led, p1_win);
+	not  (p2_win_led, p2_win);
+	not  (grid_full_led, grid_full);
+
 	wire output_d2;
 	ai t(a_switch_out, b_switch_out, c_switch_out, d_switch_out, e_switch_out, f_switch_out, g_switch_out, h_switch_out, i_switch_out, output_d2,
 		a_button_pressed, b_button_pressed, c_button_pressed, d_button_pressed, e_button_pressed, f_button_pressed, g_button_pressed, h_button_pressed, i_button_pressed);   
@@ -50,15 +52,15 @@ module tic_tac_toe
 	wire newbutton_G;
 	wire newbutton_H;
 	wire newbutton_I;
-		mux2to1 mu(a_button, a_button_pressed, output_d2, newbutton_A);
-		mux2to1 mu(b_button, b_button_pressed, output_d2, newbutton_B);
-		mux2to1 mu(c_button, c_button_pressed, output_d2, newbutton_C);
-		mux2to1 mu(d_button, d_button_pressed, output_d2, newbutton_D);
-		mux2to1 mu(e_button, e_button_pressed, output_d2, newbutton_E);
-		mux2to1 mu(f_button, f_button_pressed, output_d2, newbutton_F);
-		mux2to1 mu(g_button, g_button_pressed, output_d2, newbutton_G);
-		mux2to1 mu(h_button, h_button_pressed, output_d2, newbutton_H);
-		mux2to1 mu(i_button, i_button_pressed, output_d2, newbutton_I);
+		mux2to1 mu1(a_button, a_button_pressed, output_d2, newbutton_A);
+		mux2to1 mu2(b_button, b_button_pressed, output_d2, newbutton_B);
+		mux2to1 mu3(c_button, c_button_pressed, output_d2, newbutton_C);
+		mux2to1 mu4(d_button, d_button_pressed, output_d2, newbutton_D);
+		mux2to1 mu5(e_button, e_button_pressed, output_d2, newbutton_E);
+		mux2to1 mu6(f_button, f_button_pressed, output_d2, newbutton_F);
+		mux2to1 mu7(g_button, g_button_pressed, output_d2, newbutton_G);
+		mux2to1 mu8(h_button, h_button_pressed, output_d2, newbutton_H);
+		mux2to1 mu9(i_button, i_button_pressed, output_d2, newbutton_I);
 
 		switch a_switch (a_switch_out, a_switch_p1, a_switch_p2, newbutton_A, p1_profile, p2_profile, p1_win, p2_win, reset);
 		switch b_switch (b_switch_out, b_switch_p1, b_switch_p2, b_button, p1_profile, p2_profile, p1_win, p2_win, reset);
